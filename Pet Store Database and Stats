@@ -1,0 +1,48 @@
+/** Happy_paws:
+Dog food (20)
+Cat food (10)
+Dog toys (10)
+Dog houses (5)
+blankets (10)
+Dog treats (20)
+Dogandcat shampoo (10)
+Pet clippers (10)
+Cat litter (15)
+Litter boxes (5)
+Dog clothes (20)
+Pet leashes (10)
+Harnesses (5)
+Pet collars (10)
+Cat treats (10)
+**/
+
+CREATE TABLE happy_paws (id INTEGER PRIMARY KEY, productname TEXT, quantity INTEGER, price INTEGER, aisle INTEGER );
+
+INSERT INTO happy_paws VALUES (1, "Dog food", 20, 30, 5 );
+INSERT INTO happy_paws VALUES (2, "Cat food", 10, 25, 4 );
+INSERT INTO happy_paws VALUES (3, "Dog toys", 10, 8, 2 );
+INSERT INTO happy_paws VALUES (4, "Dog houses", 5, 50, 6 );
+INSERT INTO happy_paws VALUES (5, "blankets", 10, 10, 6 );
+INSERT INTO happy_paws VALUES (6, "Dog treats", 20, 2, 5 );
+INSERT INTO happy_paws VALUES (7, "Dogandcat shampoo", 10, 15, 8 );
+INSERT INTO happy_paws VALUES (8, "Pet clippers", 10, 5, 8 );
+INSERT INTO happy_paws VALUES (9, "Cat litter", 15, 20, 8 );
+INSERT INTO happy_paws VALUES (10, "Litter boxes", 5, 10, 8 );
+INSERT INTO happy_paws VALUES (11, "Dog clothes", 20, 20, 1 );
+INSERT INTO happy_paws VALUES (12, "Pet leashes", 10, 15, 1 );
+INSERT INTO happy_paws VALUES (13, "Harnesses", 5, 20, 1 );
+INSERT INTO happy_paws VALUES (14, "Pet collars", 10, 10, 1 );
+INSERT INTO happy_paws VALUES (15, "Cat treats", 10, 5, 5 );
+
+--display the database ordered by price.
+SELECT * FROM happy_paws 
+ORDER BY price;
+
+--what items have a greater price than 20 dollars?
+SELECT * FROM happy_paws 
+WHERE price > 20;
+
+--what items we need to re-stock sooner?
+SELECT * FROM happy_paws 
+WHERE quantity < 5;
+
