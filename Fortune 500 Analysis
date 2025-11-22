@@ -84,3 +84,9 @@ SELECT company_name, (maternity_leave_weeks * 7) AS maternity_leave_days
 FROM fortune_companies
 WHERE (maternity_leave_weeks * 7) >= 40
 ORDER BY (maternity_leave_weeks * 7) DESC;
+
+SELECT company_name, industry, employees
+FROM fortune_companies
+WHERE industry LIKE 'health%'
+AND employees > 3000
+ORDER BY employees DESC;
