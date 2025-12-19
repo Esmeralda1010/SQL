@@ -159,3 +159,12 @@ INNER JOIN events
 ON vips.event = events.event_id
 WHERE vips.assoc_type LIKE 'Gov%'
 ORDER BY events.event_name;
+
+--Show the names of the members that are receiving feedback and who is the member providing the feedback and order by member id.
+
+SELECT vips.member_id, vips.first_name AS feedback_rec, vips_feedback.first_name AS feedback_providers
+FROM vips AS vips
+INNER JOIN vips AS vips_feedback
+ON vips.provides_feedback_to = vips_feedback.member_id
+ORDER BY vips.member_id;
+
