@@ -168,3 +168,29 @@ INNER JOIN vips AS vips_feedback
 ON vips.provides_feedback_to = vips_feedback.member_id
 ORDER BY vips.member_id;
 
+--Show me all the private sector member that are doing a workshop.
+
+SELECT vips.last_name, vips.first_name, vips.assoc_type, events.event_type
+FROM vips
+LEFT JOIN events
+ON vips.event = events.event_id
+WHERE vips.assoc_type = 'private'
+ORDER BY vips.last_name;
+
+--Show member that rsvp on both welcome rsvp and dinner rsvp
+
+SELECT vips.last_name, vips.first_name, reservations.welcome_rsvp, reservations.dinner_rsvp
+FROM reservations
+RIGHT JOIN vips
+ON reservations.member_id = vips.member_id
+WHERE reservations.welcome_rsvp = 1 AND reservations.dinner_rsvp = 1
+ORDER BY vips.last_name;
+
+--Show all the members that are associated with education that have been a member is 2020 and will attend a workshop
+
+SELECT vips.last_name, vips.first_name, vips.assoc_type, vips.member_since, events.event_type
+FROM vips 
+INNER JOIN events
+ON vips.event = events.event_id
+WHERE vips.assoc_type LIKE 'edu%' AND vips.member_since >=2020 AND events.event_type LIKE 'pan%'
+ORDER BY vips.member_since;
